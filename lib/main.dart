@@ -1,3 +1,4 @@
+// Flutter
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -5,58 +6,49 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have clicked the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+    return MaterialApp( 
+      title: 'Welcome to Flutter',
+      home: Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          title: Text('Calculator', style: TextStyle(color: Colors.red),),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
         ),
+        body: Column(
+          children: <Widget>[
+            Expanded(child: Container(padding: EdgeInsets.all(20),child: Align(alignment: Alignment.bottomRight, child: Text("0", style: TextStyle(fontSize: 64, color: Colors.white, fontWeight: FontWeight.w600),)))),
+            GridView(
+              padding: EdgeInsets.all(20),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 5
+              ),
+              shrinkWrap: true,
+              children: <Widget>[
+                Container(child: FlatButton(child: Text("7", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("8", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("9", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("/", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xfffe9b09), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("4", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("5", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("6", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("x", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xfffe9b09), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("1", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("2", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("3", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("-", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xfffe9b09), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text(".", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("0", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xff3f3a3e), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("=", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xfffe9b09 ), borderRadius: BorderRadius.circular(50)),),
+                Container(child: FlatButton(child: Text("+", style: TextStyle(color: Colors.white, fontSize: 20),), onPressed: (){},), decoration: BoxDecoration(color: Color(0xfffe9b09), borderRadius: BorderRadius.circular(50)),),
+              ],
+            )
+          ],
+        )
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
